@@ -1,22 +1,22 @@
-create database stundent_management;
+CREATE DATABASE stundent_management;
 
-use stundent_management;
+USE stundent_management;
 
-create table Student
-(idStudent int primary key not null,
-`name` varchar(45),
-age int,
-country varchar(45)
+CREATE TABLE student (
+    idStudent INT PRIMARY KEY NOT NULL,
+    `name` VARCHAR(45),
+    age INT,
+    country VARCHAR(45)
 );
 
-create table Class 
-(idClass int primary key not null,
-`name` varchar(45)
+CREATE TABLE class (
+    idClass INT PRIMARY KEY NOT NULL,
+    `name` VARCHAR(45)
 );
 
-create table Teacher
-(idTeacher int primary key not null,
-`name` varchar(45),
-age int,
-country varchar(45)
+CREATE TABLE teacher (
+    idTeacher INT PRIMARY KEY NOT NULL,
+    `name` VARCHAR(45),
+    age INT,
+    country VARCHAR(45)
 );
