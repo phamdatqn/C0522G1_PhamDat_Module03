@@ -3,19 +3,19 @@ CREATE DATABASE stundent_management;
 USE stundent_management;
 
 CREATE TABLE student (
-    idStudent INT PRIMARY KEY,
+    student_id INT PRIMARY KEY,
     `name` VARCHAR(45),
     age INT,
     country VARCHAR(45)
 );
 
 CREATE TABLE class (
-    idClass INT PRIMARY KEY,
+    class_id INT PRIMARY KEY,
     `name` VARCHAR(45)
 );
 
 CREATE TABLE teacher (
-    idTeacher INT PRIMARY KEY,
+    teacher_id INT PRIMARY KEY,
     `name` VARCHAR(45),
     age INT,
     country VARCHAR(45)
