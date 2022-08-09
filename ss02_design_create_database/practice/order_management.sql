@@ -1,70 +1,90 @@
-create database if not exists order_management;
-use order_management;
+CREATE DATABASE IF NOT EXISTS order_management;
+USE order_management;
 
-create table don_vi_khach(
-ma_don_vi_khach int primary key,
-ten_don_vi_khach varchar(45),
-dia_chi varchar(45),
-dien_thoai varchar(45));
+CREATE TABLE don_vi_khach (
+    ma_don_vi_khach INT PRIMARY KEY,
+    ten_don_vi_khach VARCHAR(45),
+    dia_chi VARCHAR(45),
+    dien_thoai VARCHAR(45)
+);
 
-create table nguoi_dat(
-ma_so_nguoi_dat int primary key,
-ho_ten_nguoi_dat varchar(45));
+CREATE TABLE nguoi_dat (
+    ma_so_nguoi_dat INT PRIMARY KEY,
+    ho_ten_nguoi_dat VARCHAR(45)
+);
 
-create table hang(
-ma_hang int primary key,
-ten_hang varchar(45),
-don_vi_tinh varchar(45),
-mo_ta_hang varchar(60));
+CREATE TABLE hang (
+    ma_hang INT PRIMARY KEY,
+    ten_hang VARCHAR(45),
+    don_vi_tinh VARCHAR(45),
+    mo_ta_hang VARCHAR(60)
+);
 
-create table dat(
-ma_so_nguoi_dat int,
-ma_hang int,
-primary key(ma_so_nguoi_dat,ma_hang),
-foreign key(ma_so_nguoi_dat) references nguoi_dat(ma_so_nguoi_dat),
-foreign key(ma_hang) references hang(ma_hang),
-so_don_hang int,
-ngay_dat date,
-so_luong int);
+CREATE TABLE dat (
+    ma_so_nguoi_dat INT,
+    ma_hang INT,
+    PRIMARY KEY (ma_so_nguoi_dat , ma_hang),
+    FOREIGN KEY (ma_so_nguoi_dat)
+        REFERENCES nguoi_dat (ma_so_nguoi_dat),
+    FOREIGN KEY (ma_hang)
+        REFERENCES hang (ma_hang),
+    so_don_hang INT,
+    ngay_dat DATE,
+    so_luong INT
+);
 
-create table noi_giao(
-ma_so_noi_giao int primary key,
-ten_noi_giao varchar(45));
+CREATE TABLE noi_giao (
+    ma_so_noi_giao INT PRIMARY KEY,
+    ten_noi_giao VARCHAR(45)
+);
 
-create table nguoi_giao(
-ma_so_nguoi_giao int primary key,
-ho_ten_nguoi_giao varchar(45));
+CREATE TABLE nguoi_giao (
+    ma_so_nguoi_giao INT PRIMARY KEY,
+    ho_ten_nguoi_giao VARCHAR(45)
+);
 
-create table nguoi_nhan(
-ma_so_nguoi_nhan int primary key,
-ho_ten_nguoi_nhan varchar(45));
+CREATE TABLE nguoi_nhan (
+    ma_so_nguoi_nhan INT PRIMARY KEY,
+    ho_ten_nguoi_nhan VARCHAR(45)
+);
 
-create table giao(
-ma_hang int,
-ma_so_nguoi_giao int,
-ma_so_noi_giao int,
-ma_so_nguoi_nhan int,
-primary key(ma_hang,ma_so_nguoi_giao,ma_so_noi_giao,ma_so_nguoi_nhan),
-foreign key(ma_hang) references hang(ma_hang),
-foreign key(ma_so_nguoi_giao) references nguoi_giao(ma_so_nguoi_giao),
-foreign key(ma_so_noi_giao) references noi_giao(ma_so_noi_giao),
-foreign key(ma_so_nguoi_nhan) references nguoi_nhan(ma_so_nguoi_nhan),
-so_phieu_giao int,
-ngay_giao date,
-so_luong int,
-don_gia double);
+CREATE TABLE giao (
+    ma_hang INT,
+    ma_so_nguoi_giao INT,
+    ma_so_noi_giao INT,
+    ma_so_nguoi_nhan INT,
+    PRIMARY KEY (ma_hang , ma_so_nguoi_giao , ma_so_noi_giao , ma_so_nguoi_nhan),
+    FOREIGN KEY (ma_hang)
+        REFERENCES hang (ma_hang),
+    FOREIGN KEY (ma_so_nguoi_giao)
+        REFERENCES nguoi_giao (ma_so_nguoi_giao),
+    FOREIGN KEY (ma_so_noi_giao)
+        REFERENCES noi_giao (ma_so_noi_giao),
+    FOREIGN KEY (ma_so_nguoi_nhan)
+        REFERENCES nguoi_nhan (ma_so_nguoi_nhan),
+    so_phieu_giao INT,
+    ngay_giao DATE,
+    so_luong INT,
+    don_gia DOUBLE
+);
 
-create table don_vi_nguoi_dat(
-ma_don_vi int,
-ma_so_nguoi_dat int,
-primary key(ma_don_vi,ma_so_nguoi_dat),
-foreign key(ma_don_vi) references don_vi_khach(ma_don_vi_khach),
-foreign key(ma_so_nguoi_dat) references nguoi_dat(ma_so_nguoi_dat));
+CREATE TABLE don_vi_nguoi_dat (
+    ma_don_vi INT,
+    ma_so_nguoi_dat INT,
+    PRIMARY KEY (ma_don_vi , ma_so_nguoi_dat),
+    FOREIGN KEY (ma_don_vi)
+        REFERENCES don_vi_khach (ma_don_vi_khach),
+    FOREIGN KEY (ma_so_nguoi_dat)
+        REFERENCES nguoi_dat (ma_so_nguoi_dat)
+);
 
-create table don_vi_nguoi_nhan(
-ma_don_vi int,
-ma_so_nguoi_nhan int,
-primary key(ma_don_vi,ma_so_nguoi_nhan),
-foreign key(ma_don_vi) references don_vi_khach(ma_don_vi_khach),
-foreign key(ma_so_nguoi_nhan) references nguoi_nhan(ma_so_nguoi_nhan));
+CREATE TABLE don_vi_nguoi_nhan (
+    ma_don_vi INT,
+    ma_so_nguoi_nhan INT,
+    PRIMARY KEY (ma_don_vi , ma_so_nguoi_nhan),
+    FOREIGN KEY (ma_don_vi)
+        REFERENCES don_vi_khach (ma_don_vi_khach),
+    FOREIGN KEY (ma_so_nguoi_nhan)
+        REFERENCES nguoi_nhan (ma_so_nguoi_nhan)
+);
 
