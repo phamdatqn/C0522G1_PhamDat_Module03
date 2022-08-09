@@ -26,7 +26,7 @@ CREATE TABLE product (
 CREATE TABLE order_detail (
     detail_id INT,
     product_id INT,
-    odQTY VARCHAR(45),
+    order_qty VARCHAR(45),
     FOREIGN KEY (detail_id)
         REFERENCES `order` (order_id),
     FOREIGN KEY (product_id)
