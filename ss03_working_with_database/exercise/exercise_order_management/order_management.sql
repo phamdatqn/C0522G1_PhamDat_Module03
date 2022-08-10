@@ -44,11 +44,11 @@ VALUES
 
 INSERT INTO product( `name`,price)
 VALUES 
-('May Giat',3000),
-('Tu Lanh',5000),
-('Dieu Hoa',7000),
-('Quat',1000),
-('Bep Dien',2000);
+('May Giat',3),
+('Tu Lanh',5),
+('Dieu Hoa',7),
+('Quat',1),
+('Bep Dien',2);
 
 INSERT INTO order_detail
 VALUES 
