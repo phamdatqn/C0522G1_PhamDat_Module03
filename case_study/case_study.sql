@@ -114,7 +114,7 @@ CREATE TABLE dich_vu(
 ma_dich_vu INT PRIMARY KEY,
 ten_dich_vu VARCHAR(45) NOT NULL,
 dien_tich INT,
-chi_phu_thue DOUBLE NOT NULL,
+chi_phi_thue DOUBLE NOT NULL,
 so_nguoi_toi_da INT,
 tieu_chuan_phong VARCHAR(45),
 mo_ta_tien_nghi_khac VARCHAR(45),
