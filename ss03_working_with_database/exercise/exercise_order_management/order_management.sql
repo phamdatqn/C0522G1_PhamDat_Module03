@@ -71,12 +71,7 @@ VALUES
  
  -- 3: Hiển thị tên những khách hàng không mua bất kỳ một sản phẩm nào
  SELECT * FROM customer
- where customer.customer_id
- not in 
- (SELECT customer.customer_id FROM customer
- join `order` on customer.customer_id=`order`.customer_id
- join order_detail on order_detail.detail_id=`order`.order_id
- join product on product.product_id=order_detail.product_id);
+ where customer.customer_id not in(select `order`.customer_id from `order`);
  
 ---- --   -- 4: Hiển thị mã hóa đơn, ngày bán và giá tiền của từng hóa đơn (giá một hóa đơn được tính bằng tổng giá bán của từng loại mặt hàng xuất hiện trong hóa đơn.
 --  -- Giá bán của từng loại được tính = odQTY*pPrice)
