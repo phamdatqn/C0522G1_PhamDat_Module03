@@ -80,7 +80,7 @@ VALUES
  
 ---- --   -- 4: Hiển thị mã hóa đơn, ngày bán và giá tiền của từng hóa đơn (giá một hóa đơn được tính bằng tổng giá bán của từng loại mặt hàng xuất hiện trong hóa đơn.
 --  -- Giá bán của từng loại được tính = odQTY*pPrice)
-  SELECT `order`.order_id,order_date,(order_detail.order_qty*product.price)as gia_ban_tung_loai,sum(order_detail.order_qty*product.price) as gia_ban_tung_hoa_don from `order`
+  SELECT `order`.order_id,order_date,sum(order_detail.order_qty*product.price) as gia_ban_tung_hoa_don from `order`
   join order_detail on `order`.order_id=order_detail.detail_id
   join product on product.product_id=order_detail.product_id
   group by `order`.order_id;
