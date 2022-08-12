@@ -1,6 +1,6 @@
-DROP DATABASE IF EXISTS case_study_database;
-CREATE DATABASE  case_study_database;
-USE case_study_database;
+DROP DATABASE IF EXISTS case_study_database2;
+CREATE DATABASE  case_study_database2;
+USE case_study_database2;
 
 CREATE TABLE vi_tri(
 ma_vi_tri INT PRIMARY KEY auto_increment,
@@ -137,7 +137,7 @@ foreign key(ma_loai_dich_vu) REFERENCES loai_dich_vu(ma_loai_dich_vu),
 is_delete BIT DEFAULT 0);
 INSERT INTO dich_vu(ten_dich_vu,dien_tich,chi_phi_thue,so_nguoi_toi_da,tieu_chuan_phong,mo_ta_tien_nghi_khac,dien_tich_ho_boi,so_tang,dich_vu_mien_phi_di_kem,ma_kieu_thue,ma_loai_dich_vu)
 VALUES 
-('Villa Beach Front',25000,10000000,10,'vip','Có hồ bơi',500,4,null,3,1),
+('Villa Beach Front',25000,1000000,10,'vip','Có hồ bơi',500,4,null,3,1),
 ('House Princess 01',14000,5000000,7,'vip','Có thêm bếp nướng',null,3,null,2,2),
 ('Room Twin 01',5000,1000000,2,'normal','Có tivi',null,null,'1 Xe máy, 1 Xe đạp',4,3),
 ('Villa No Beach Front',22000,9000000,8,'normal','Có hồ bơi',300,3,null,3,1),
