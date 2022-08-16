@@ -14,28 +14,17 @@ where lk.ten_loai_khach = 'Diamond' and (dia_chi like '% Vinh' or dia_chi like '
  tien_dat_coc của tất cả các dịch vụ đã từng được khách hàng đặt vào 3 tháng cuối năm 2020 nhưng chưa từng được khách hàng đặt vào 6 tháng đầu năm 2021.
 */
 
-SELECT 
-    hd.ma_hop_dong,
-    nv.ho_ten,
-    kh.ho_ten,
-    kh.so_dien_thoai,
-    hd.ngay_lam_hop_dong,
-    dv.ten_dich_vu,
-    SUM(IFNULL(hdct.so_luong, 0)) AS so_luong_dich_vu_di_kem,
-    hd.tien_dat_coc
-FROM
-    hop_dong AS hd
-        JOIN
-    nhan_vien AS nv ON nv.ma_nhan_vien = hd.ma_nhan_vien
-        JOIN
-    khach_hang AS kh ON kh.ma_khach_hang = hd.ma_khach_hang
-        JOIN
-    dich_vu AS dv ON dv.ma_dich_vu = hd.ma_dich_vu
-        LEFT JOIN
-    hop_dong_chi_tiet AS hdct ON hdct.ma_hop_dong = hd.ma_hop_dong
-WHERE
-    (YEAR(ngay_lam_hop_dong) = 2020 AND MONTH(ngay_lam_hop_dong) IN (10 , 11, 12))
-        AND hd.ma_hop_dong NOT IN (SELECT ma_hop_dong FROM hop_dong WHERE YEAR(ngay_lam_hop_dong) = 2021 AND MONTH(ngay_lam_hop_dong) BETWEEN 1 AND 6)
+SELECT hd.ma_hop_dong, nv.ho_ten, kh.ho_ten, kh.so_dien_thoai, hd.ngay_lam_hop_dong, dv.ten_dich_vu, SUM(IFNULL(hdct.so_luong, 0)) AS so_luong_dich_vu_di_kem, hd.tien_dat_coc
+FROM hop_dong AS hd
+JOIN nhan_vien AS nv ON nv.ma_nhan_vien = hd.ma_nhan_vien
+JOIN khach_hang AS kh ON kh.ma_khach_hang = hd.ma_khach_hang
+JOIN dich_vu AS dv ON dv.ma_dich_vu = hd.ma_dich_vu
+LEFT JOIN hop_dong_chi_tiet AS hdct ON hdct.ma_hop_dong = hd.ma_hop_dong
+WHERE (YEAR(ngay_lam_hop_dong) = 2020 AND MONTH(ngay_lam_hop_dong) IN (10 , 11, 12))
+        AND hd.ma_hop_dong NOT IN 
+			(SELECT ma_hop_dong 
+            FROM hop_dong 
+            WHERE YEAR(ngay_lam_hop_dong) = 2021 AND MONTH(ngay_lam_hop_dong) BETWEEN 1 AND 6)
 GROUP BY hd.ma_hop_dong;
 
 /*

@@ -26,17 +26,19 @@ where year(ngay_lam_hop_dong)=2021 and ten_loai_khach='Platinium'
 group by hd.ma_hop_dong;
 
 SET SQL_SAFE_UPDATES = 0;
-update khach_hang set ma_loai_khach = (select ma_loai_khach from loai_khach where ten_loai_khach ='Diamond')
+update khach_hang set ma_loai_khach = 1
 where ma_khach_hang in
-(select ma_khach_hang from khach_hang_tong_tien
+	(select ma_khach_hang 
+    from khach_hang_tong_tien
 where tong_tien >10000000);
 
 -- 18.	Xóa những khách hàng có hợp đồng trước năm 2021 .
 set sql_safe_updates = 0;
-update khach_hang set is_delete = 1 
+update khach_hang 
+set is_delete = 1 
 where ma_khach_hang in (
-select ma_khach_hang 
-from hop_dong
+	select ma_khach_hang 
+	from hop_dong
 where year(ngay_lam_hop_dong)<2021);
 
 -- 19.	Cập nhật giá cho các dịch vụ đi kèm được sử dụng trên 10 lần trong năm 2020 lên gấp đôi.
@@ -50,7 +52,11 @@ group by hdct.ma_dich_vu_di_kem
 having count(ifnull(hdct.ma_dich_vu_di_kem,0))>10;
 
 set sql_safe_updates = 0;
-update dich_vu_di_kem as dvdk set gia = gia/2 where dvdk.ma_dich_vu_di_kem in (select ma_dich_vu_di_kem from w_dvdk_10_lan_sung_2020); 
+update dich_vu_di_kem as dvdk 
+set gia = gia/2 
+where dvdk.ma_dich_vu_di_kem in 
+	(select ma_dich_vu_di_kem 
+    from w_dvdk_10_lan_sung_2020); 
 
 
 -- 20.	Hiển thị thông tin của tất cả các nhân viên và khách hàng có trong hệ thống, thông tin hiển thị bao gồm id 

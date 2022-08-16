@@ -57,7 +57,6 @@ call sp_them_moi_hop_dong('2022-08-14','2022-08-15',0,2,10,2);
 Lưu ý: Đối với MySQL thì sử dụng SIGNAL hoặc ghi log thay cho việc ghi ở console.
 */
 
--- 1. ghi lịch sử xóa.
 delimiter //
 create trigger tr_xoa_hop_dong
 after update on hop_dong
