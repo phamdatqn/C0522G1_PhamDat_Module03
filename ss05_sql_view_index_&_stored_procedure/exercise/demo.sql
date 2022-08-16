@@ -21,12 +21,16 @@ values
 
 -- Tạo Unique Index trên bảng Products (sử dụng cột productCode để tạo chỉ mục)
 alter table products add unique index i_unique_product(product_code);
-explain select * from products where product_code='k1234567' ;
+explain select *
+from products 
+where product_code='k1234567' ;
 alter table products drop index i_unique_product;
 
 -- Tạo Composite Index trên bảng Products (sử dụng 2 cột productName và productPrice)
 alter table products add index i_composite_product(product_name,product_price);
-explain select * from products where product_name='kẹo chupa ba chupa'and product_price>=5000;
+explain select * 
+from products 
+where product_name='kẹo chupa ba chupa'and product_price>=5000;
 alter table products drop index i_composite_product;
 
 -- Tạo view lấy về các thông tin: productCode, productName, productPrice, productStatus từ bảng products.
@@ -37,7 +41,8 @@ from products;
 -- Tiến hành sửa đổi view
 SET SQL_SAFE_UPDATES = 0;
 update w_product 
-set product_name = 'Bánh hachi' where product_code ='b1234567';
+set product_name = 'Bánh hachi' 
+where product_code ='b1234567';
 
 -- Tiến hành xoá view
 drop view w_product;
@@ -46,7 +51,8 @@ drop view w_product;
 delimiter //
 create procedure sp_product()
 	begin
-		select * from products;
+		select * 
+        from products;
     end//
 delimiter ;
 call sp_product();
@@ -65,7 +71,8 @@ call sp_add_product('k1234100','Bánh new add',22000,500,'Bánh add sp','new 100
 delimiter //
 create procedure sp_update_product(update_id int,p_code varchar(50),p_name varchar(50),p_price double,p_amount int,p_description varchar(100),p_status varchar(50))
 begin 
-	update products set 
+	update products
+    set 
      product_code = p_code,
      product_name = p_name,
      product_price = p_price,

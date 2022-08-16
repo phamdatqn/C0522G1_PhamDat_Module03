@@ -64,18 +64,22 @@ VALUES
  SELECT order_id,order_date,total_price FROM `order`;
  
  -- 2: Hiển thị danh sách các khách hàng đã mua hàng, và danh sách sản phẩm được mua bởi các khách.
- SELECT customer.`name`,product.`name`,`order`.order_date FROM customer
+ SELECT customer.`name`,product.`name`,`order`.order_date 
+ FROM customer
  join `order` on customer.customer_id=`order`.customer_id
  join order_detail on order_detail.detail_id=`order`.order_id
  join product on product.product_id=order_detail.product_id;
  
  -- 3: Hiển thị tên những khách hàng không mua bất kỳ một sản phẩm nào
  SELECT * FROM customer
- where customer.customer_id not in(select `order`.customer_id from `order`);
+ where customer.customer_id not in
+ (select `order`.customer_id
+ from `order`);
  
 ---- --   -- 4: Hiển thị mã hóa đơn, ngày bán và giá tiền của từng hóa đơn (giá một hóa đơn được tính bằng tổng giá bán của từng loại mặt hàng xuất hiện trong hóa đơn.
 --  -- Giá bán của từng loại được tính = odQTY*pPrice)
-  SELECT `order`.order_id,order_date,sum(order_detail.order_qty*product.price) as gia_ban_tung_hoa_don from `order`
+  SELECT `order`.order_id,order_date,sum(order_detail.order_qty*product.price) as gia_ban_tung_hoa_don 
+  from `order`
   join order_detail on `order`.order_id=order_detail.detail_id
   join product on product.product_id=order_detail.product_id
   group by `order`.order_id;

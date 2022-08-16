@@ -80,7 +80,8 @@ set class_id=2
 where student_name='Hung';
 
 -- cau 5. Hiển thị các thông tin: StudentName, SubName, Mark. Dữ liệu sắp xếp theo điểm thi (mark) giảm dần. nếu trùng sắp theo tên tăng dần.
-select student.student_name,`subject`.subject_name,mark.mard from student
+select student.student_name,`subject`.subject_name,mark.mard
+from student
 join mark on mark.student_id=student.student_id
 join `subject` on `subject`.subject_id=mark.subject_id
 order by mard desc, student.student_name;
