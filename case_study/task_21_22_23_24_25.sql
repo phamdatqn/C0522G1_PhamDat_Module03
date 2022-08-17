@@ -10,7 +10,8 @@ where ngay_lam_hop_dong ='2019-12-12' and  dia_chi like '% Hải Châu%';
  
 /*22.	Thông qua khung nhìn v_nhan_vien thực hiện cập nhật địa chỉ thành “Liên Chiểu” đối với tất cả các nhân viên được nhìn thấy bởi khung nhìn này.*/
 set sql_safe_updates = 0;
-update v_nhan_vien set dia_chi='Liên Chiểu';
+update v_nhan_vien 
+set dia_chi='Liên Chiểu';
 set sql_safe_updates = 1;
 
 /*23.	Tạo Stored Procedure sp_xoa_khach_hang dùng để xóa thông tin của một khách hàng nào đó với ma_khach_hang được truyền vào như là 1 tham số của sp_xoa_khach_hang.*/
