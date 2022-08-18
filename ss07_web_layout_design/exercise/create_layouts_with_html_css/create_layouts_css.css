@@ -1,0 +1,28 @@
+
+.head{
+    border-style: solid;
+    color: black;
+    text-align: center;
+    height: 50px;
+}
+.nav{
+    padding: 2px;
+    color: black;
+    text-align: center;
+}
+.article {
+    border: 1px;
+
+}
+.aside{
+    border: 1px;
+}
+table{
+
+    width: 100%;
+}
+.footer{
+    border: 1px;
+    text-align: center;
+    height: 50px;
+}
