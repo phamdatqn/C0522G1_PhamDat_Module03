@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="f6796c8b-4c88-434b-8577-4fbd0ef222f8" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../module03/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../module03/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../module03/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../module03/.idea/ss06_css.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../module03/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../module03/ss06_css/exercise/create_page_short_stories/Screenshot 2022-08-17 180818.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../module03/ss06_css/exercise/create_page_short_stories/create_page_short_story.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../module03/ss06_css/exercise/embadding_css_in_html/embadding_css_in_html.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../module03/ss06_css/exercise/embadding_css_in_html/nhung_css.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../module03/ss06_css/exercise/format_text_css/format_text_css.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../module03/ss06_css/practice/using_css.html" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CSS File" />
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="2DSuFWNLzm7Nhpj677k65zSrB2D" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+    <option name="showMembers" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/.idea" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\codegym\module3\C0522G1_PhamDat_Module03\ss06_css\ss06_css" />
+      <recent name="C:\codegym\module3\C0522G1_PhamDat_Module03\ss06_css\exercise\embadding_css_in_html" />
+      <recent name="C:\codegym\module3\C0522G1_PhamDat_Module03\ss06_css\exercise" />
+    </key>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f6796c8b-4c88-434b-8577-4fbd0ef222f8" name="Default Changelist" comment="" />
+      <created>1660704703718</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1660704703718</updated>
+      <workItem from="1660704704855" duration="1259000" />
+      <workItem from="1660717910184" duration="11268000" />
+      <workItem from="1660733664240" duration="4240000" />
+      <workItem from="1660746642411" duration="1000" />
+      <workItem from="1660747532636" duration="2000" />
+      <workItem from="1660785114424" duration="598000" />
+      <workItem from="1660788246933" duration="1000" />
+      <workItem from="1660788774861" duration="433000" />
+      <workItem from="1660789229427" duration="17000" />
+      <workItem from="1660789293837" duration="11000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="549" y="163" key="FileChooserDialogImpl" timestamp="1660789303383">
+      <screen x="0" y="0" width="1536" height="816" />
+    </state>
+    <state x="549" y="163" key="FileChooserDialogImpl/0.0.1536.816@0.0.1536.816" timestamp="1660789303383" />
+  </component>
+</project>
