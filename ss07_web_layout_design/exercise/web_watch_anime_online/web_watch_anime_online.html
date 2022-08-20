@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .row{
+            /*cho phép thẻ div (col) nổi lên trên*/
+            display: flex;
+            /*Các thẻ div (col)  không đủ chỗ chứa trên 1 hàng thì rớt xuống*/
+            flex-wrap: wrap;
+        }
+        .menu{
+            text-align: center;
+        }
+        .head{
+            background: #dfe7f2;
+            height: 70px;
+        }
+        .content{
+            background: #dfe7f5;
+            height: 30px;
+        }
+        .left{
+            background: #CDCDCD;
+            height: 700px;
+            overflow: hidden;
+        }
+        .left:hover{
+            overflow: scroll;
+        }
+        .right{
+            background: red;
+            height: 200px;
+        }
+        #Tieude{
+            font-family: "UTM Flamenco";
+            font-size: 30px;
+            color: blue;
+            text-align: center;
+            margin-top: -5px;
+        }
+        #Tieudechinh{
+            font-family: "UTM Flamenco";
+            font-size: 50px;
+            text-align: center;
+            color: red;
+            margin-top: -5px;
+            margin-left: -500px;
+        }
+        p{
+            width: 980px;
+            text-indent:30px;
+            line-height: 1.5;
+            text-align: justify;
+        }
+        a{
+            color: blue;
+            font-size: 18px;
+            font-family: "UTM Flamenco";
+        }
+        .col-s-1 {width: 8.33333%;}
+        .col-s-2 {width: 16.66667%;}
+        .col-s-3 {width: 25%;}
+        .col-s-4 {width: 33.33333%;}
+        .col-s-5 {width: 41.66667%;}
+        .col-s-6 {width: 50%;}
+        .col-s-7 {width: 58.33333%;}
+        .col-s-8 {width: 66.66667%;}
+        .col-s-9 {width: 75%;}
+        .col-s-10 {width: 83.33333%;}
+        .col-s-11 {width: 91.66667%;}
+        .col-s-12 {width: 100%;}
+    </style>
+</head>
+<body>
+<!--hàng 1-->
+<div class="row head">
+    <div class="col-s-12">
+        <img src="img/logo.jpg" style="margin-top: 10px">
+    </div>
+
+</div>
+<div class="row"style="height: 5px"></div>
+<!--hàng 2-->
+<div class="row content">
+    <div class="col-s-3" style="margin-top: 5px">
+    </div>
+    <div class="col-s-6">
+        <div class="row">
+            <div class="col-s-2 menu " >Phim hoạt hình </div>
+            <div class="col-s-4 menu" style="text-align: right">Phim hoạt hình yêu thích </div>
+            <div class="col-s-4 menu" >Nhân vật hoạt hình </div>
+            <div class="col-s-2 menu" >Góp ý</div>
+        </div>
+    </div>
+    <div class="col-s-3">
+    </div>
+</div>
+<!--hàng 3-->
+<div class="row">
+    <div class="col-s-4 left">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/42BMbqOzak8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <br><a>Đấu La Đại Lục tập 216 | Đánh Bại 5 Vị Trưởng Lão</a><br><br>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/YUecgJQcru8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <br><a>Phim thế giới hoàn mỹ - Tập 72</a><br><br>
+        <iframe width="90%" height="300" src="https://www.youtube.com/embed/GgsE7oRWZFs" title="TINH THẦN BIẾN PHẦN 3 TRỌN BỘ THUYẾT MINH - HOẠT HÌNH 3D TRUNG QUỐC" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <br><a>Phim tinh thần biến - Phần 3</a><br>
+    </div>
+    <div class="col-s-8 right">
+        <iframe width="100%" height="500px" src="https://www.youtube.com/embed/hwonsygb8wE" title="Đấu Phá Thương Khung Phần 5 Tập 1, 2, 3, 4, 5, 6 Thuyết Minh Tiếng Việt 1080P | 《斗破苍穹年番》第1-6话" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <br>
+        <p id="Tieude"> GIỚI THIỆU PHIM</p>
+        <p style="margin-top: -30px">
+            - <b>Đấu Phá Thương Khung</b> là một câu chuyện huyền huyễn đặc sắc kể về Tiêu Viêm, một thiên chi kiêu tử với thiên phú tu luyện mà ai ai cũng hâm mộ, bỗng một ngày người mẹ mất đi đễ lại di vật là một chiếc giới chỉ màu đen nhưng từ khi đó Tiêu Viêm đã mất đi thiên phú tu luyện của mình.
+
+            - Từ thiên tài rớt xuống làm phế vật trong 3 năm, rồi bị vị hôn thê thẳng thừng từ hôn, làm dấy lên ý chí nam nhi của mình, Tiêu Viêm nhờ di vật của mẫu thân để lại là 1 chiếc hắc giới chỉ (nhẫn màu đen)Tiêu Viêm gặp được hồn của Dược Lão (Dược Trần – Dược tôn giả) 1 đại luyện dược tông sư của đấu khí đại lục…
+
+            - Từ đó cuộc đời của Tiêu Viêm có những biến hóa gì? Gặp được các đại ngộ gì? Thân phận thật sự của Huân Nhi (thanh mai trúc mã lúc nhỏ của Tiêu Viêm) ra sao? Bí mật của gia tộc hắn là gì? Cùng theo dõi bộ truyện Đấu Phá Thương Khung để có thể giải đáp các thắc mắc này các bạn nhé!
+        </p>
+        <p>
+            <b>Tinh thần biến</b> là một tiểu thuyết võ hiệp có nội dung về một câu Truyện Tiên Hiệp hoành tráng kể về người thanh niên Tần Vũ gian khổ tu luyện, vượt hết khó khăn này đến nguy hiểm khác để lên Thần Giới tìm người yêu.
+
+            - Tần Vũ đã gặp duyên kỳ ngộ học được Tinh Thần Biến công pháp của Lôi Vệ, gian khổ tu luyện để làm cho người thân mình an toàn, nhờ sự giúp sức của Lan thúc(chú của người yêu) và Nghịch Ương tiên đế để phi thăng lên tiên giới và thần giới, nhưng rồi tại thần giới tranh đấu với cả nhà thần vương của Lôi Phạt thành và Lôi Phạt thiên tôn, cuối cùng nhờ sự giúp sức của Lôi Mông (sau này là nhị sư huynh của Tần Vũ và cũng là Lâm Lôi trong truyện Bàn Long cùng tác giả) phát triển lên sau này đã sáng tạo ra Tần Mông vũ trụ của riêng mình.
+
+        </p>
+    </div>
+
+</div>
+</body>
+</html>

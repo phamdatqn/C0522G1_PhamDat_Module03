@@ -1,5 +1,5 @@
 .head {
-    background: white;
+    background: #f0f2f5;
 }
 
 .icon_facebook {
@@ -31,7 +31,9 @@
     border-left: none;
     border-right: none;
 }
-
+.fixed{
+    position: fixed;
+}
 .can_giua {
     float: left;
     padding-top: 20px;
@@ -53,7 +55,20 @@
     /*Các thẻ div (col)  không đủ chỗ chứa trên 1 hàng thì rớt xuống*/
     flex-wrap: wrap;
 }
-
+.doi_mau_chu_vien:hover{
+    border-style: solid;
+    display: inline-block;
+    color: #4267b2;
+}
+.doi_mau_chu_link:hover{
+    color: red;
+}
+.xoa_gach_duoi{
+    text-decoration: none;
+}
+.con_tro{
+    cursor: pointer;
+}
 /*màn hình điện thoai*/
 @media only screen and (max-width: 740px ) {
     .col-s-1 {
