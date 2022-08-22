@@ -125,3 +125,10 @@ select student.`name`,birthday,gender,class.`name` from student
 JOIN class ON student.class_id = class.id
 order by student.`name`;
 
+create view v_student as 
+select * 
+from student;
+
+select * from v_student;
+
+update v_student set class_id =2 where id=1;

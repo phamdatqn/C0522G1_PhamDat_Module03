@@ -55,7 +55,7 @@ set sql_safe_updates = 0;
 update dich_vu_di_kem as dvdk 
 set gia = gia/2 
 where dvdk.ma_dich_vu_di_kem in 
-	(select ma_dich_vu_di_kem 
+	(select ma_dich_vu_di_kem classclassstudent
     from w_dvdk_10_lan_sung_2020); 
 
 
