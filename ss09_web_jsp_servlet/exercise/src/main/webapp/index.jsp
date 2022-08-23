@@ -7,11 +7,11 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
-  <head>
+<head>
     <title>$Title$</title>
-  </head>
-  <body>
-  <form method="post" action="/ProductServlet">
+</head>
+<body>
+<form method="post" action="/ProductServlet">
     <span>Product Description</span><br>
     <input name="productDescription" type="text"><br><br>
 
@@ -21,6 +21,6 @@
     <span>Discount Percent</span><br><br>
     <input name="discountPercen">
     <button type="submit">Tính</button>
-  </form>
-  </body>
+</form>
+</body>
 </html>

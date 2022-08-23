@@ -26,14 +26,14 @@ public class DictionaryServlet extends HttpServlet {
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("result.jsp");
         String search = request.getParameter("txtSearch");
         String result = dictionary.get(search);
-        String noResult="Không tìm thấy";
-        if(result != null){
-            request.setAttribute("word",search);
-            request.setAttribute("result",result);
+        String noResult = "Không tìm thấy";
+        if (result != null) {
+            request.setAttribute("word", search);
+            request.setAttribute("result", result);
         } else {
-           request.setAttribute("noResult",noResult);
+            request.setAttribute("noResult", noResult);
         }
-        requestDispatcher.forward(request,response);
+        requestDispatcher.forward(request, response);
 
     }
 }

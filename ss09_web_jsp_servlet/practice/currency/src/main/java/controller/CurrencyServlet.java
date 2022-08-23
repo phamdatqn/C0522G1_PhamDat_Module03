@@ -16,10 +16,10 @@ public class CurrencyServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int usd = Integer.parseInt(request.getParameter("usd"));
         int rate = Integer.parseInt(request.getParameter("rate"));
-        int converter = usd*rate;
+        int converter = usd * rate;
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("result.jsp");
-        request.setAttribute("input_usd",usd);
-        request.setAttribute("result",converter);
-        requestDispatcher.forward(request,response);
+        request.setAttribute("input_usd", usd);
+        request.setAttribute("result", converter);
+        requestDispatcher.forward(request, response);
     }
 }
