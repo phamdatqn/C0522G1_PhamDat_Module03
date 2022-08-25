@@ -13,6 +13,9 @@
 </head>
 <body>
 <%--<h3>kq: ${result}</h3>--%>
-<c:out value="${result}"></c:out>
+<c:out value="${firstNumber}"></c:out>
+<c:out value="${calculation}"></c:out>
+<c:out value="${secondNumber}"></c:out>
+<c:out value="= ${result}"></c:out>
 </body>
 </html>

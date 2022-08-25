@@ -18,7 +18,7 @@ public class CalculatorServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("calculator/result.jsp");
-        int firstNumber = Integer.parseInt(request.getParameter("inputFirst"));
+        int firstNumber = Integer.parseInt(request.getParameter("firstNumber"));
         int secondNumber = Integer.parseInt(request.getParameter("secondNumber"));
 
         double result;
@@ -37,6 +37,9 @@ public class CalculatorServlet extends HttpServlet {
             default:
                 result = firstNumber / secondNumber;
         }
+        request.setAttribute("firstNumber",firstNumber);
+        request.setAttribute("secondNumber",secondNumber);
+        request.setAttribute("calculation",calculation);
         request.setAttribute("result", result);
         requestDispatcher.forward(request, response);
     }

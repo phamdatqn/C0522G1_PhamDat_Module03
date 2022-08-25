@@ -18,7 +18,7 @@
         <table>
             <tr>
                 <td>First operand:</td>
-                <td><input name="inputFirst"></td>
+                <td><input name="firstNumber"></td>
             </tr>
             <tr>
                 <td>Operator:</td>
