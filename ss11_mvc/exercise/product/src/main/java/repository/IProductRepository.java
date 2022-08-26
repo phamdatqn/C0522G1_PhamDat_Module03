@@ -9,6 +9,6 @@ public interface IProductRepository {
     void save(Product customer);
     List<Product> findName(String name);
     Product findById(int id);
-    void update(int id,Product customer);
+    void update(int id,Product product);
     void  remove(int id);
 }

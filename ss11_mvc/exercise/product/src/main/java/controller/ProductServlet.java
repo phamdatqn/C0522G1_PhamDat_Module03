@@ -89,7 +89,6 @@ public class ProductServlet extends HttpServlet {
     private void showListProduct(HttpServletRequest request, HttpServletResponse response) {
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("view/product/list.jsp");
         request.setAttribute("productList", productService.findAll());
-
         try {
             requestDispatcher.forward(request, response);
         } catch (ServletException e) {
@@ -140,6 +139,7 @@ public class ProductServlet extends HttpServlet {
         product.setPrice(price);
         product.setOptions(options);
         product.setVendor(vendor);
+
         productService.update(id,product);
         request.setAttribute("mess","cập nhập thành công !");
 

@@ -34,7 +34,6 @@ public class ProductService implements IProductService {
     @Override
     public void update(int id, Product product) {
         productRepository.update(id,product);
-
     }
 
     @Override
