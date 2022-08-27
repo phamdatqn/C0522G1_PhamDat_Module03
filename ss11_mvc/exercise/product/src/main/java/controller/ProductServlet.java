@@ -34,9 +34,26 @@ public class ProductServlet extends HttpServlet {
             case "update":
                 showInfoUpdate(request, response);
                 break;
+            case "view":
+                view(request, response);
+                break;
             default:
                 // hien thi danh sach
                 showListProduct(request, response);
+        }
+    }
+
+    private void view(HttpServletRequest request, HttpServletResponse response) {
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("view/product/view.jsp");
+        int id = Integer.parseInt(request.getParameter("id"));
+        Product product = productService.findById(id);
+        request.setAttribute("product", product);
+        try {
+            requestDispatcher.forward(request, response);
+        } catch (ServletException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
@@ -120,6 +137,7 @@ public class ProductServlet extends HttpServlet {
             case "update":
                 update(request, response);
                 break;
+
             default:
                 // hien thi danh sach
                 showListProduct(request, response);

@@ -15,11 +15,16 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
             crossorigin="anonymous"></script>
+    <style>
+        a {
+            text-decoration: none;
+        }
+    </style>
 </head>
 <body>
 <form>
     <input name="name">
-    <input name="action" type="submit" value="search">tìm kiếm</input>
+    <input name="action" type="submit" value="search">
 </form>
 <h1 style="text-align: center">Danh sách sản phẩm hiện có:</h1>
 <table class="table table-striped" border="1">
@@ -36,7 +41,7 @@
     <c:forEach varStatus="status" var="product" items="${productList}">
         <tr>
             <td>${status.count}</td>
-            <td>${product.getName()}</td>
+            <td><a href="/product?action=view&id=${product.getId()}">${product.getName()}</a></td>
             <td>${product.getPrice()} VNĐ</td>
             <td>${product.getOptions()}</td>
             <td>${product.getVendor()}</td>
