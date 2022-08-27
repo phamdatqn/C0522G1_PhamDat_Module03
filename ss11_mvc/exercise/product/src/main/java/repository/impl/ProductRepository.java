@@ -29,9 +29,9 @@ public class ProductRepository implements IProductRepository {
     @Override
     public List<Product> findName(String name) {
         List<Product> products = new ArrayList<>();
-        Set<Integer>keyList=productList.keySet();
-        for (Integer key: keyList) {
-            if (productList.get(key).getName().toLowerCase().contains(name.toLowerCase())){
+        Set<Integer> keyList = productList.keySet();
+        for (Integer key : keyList) {
+            if (productList.get(key).getName().toLowerCase().contains(name.toLowerCase())) {
                 products.add(productList.get(key));
             }
         }

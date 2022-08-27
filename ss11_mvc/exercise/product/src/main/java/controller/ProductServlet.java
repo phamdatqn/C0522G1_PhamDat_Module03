@@ -29,10 +29,10 @@ public class ProductServlet extends HttpServlet {
                 search(request, response);
                 break;
             case "delete":
-                showInfoDelete(request,response);
+                showInfoDelete(request, response);
                 break;
             case "update":
-                showInfoUpdate(request,response);
+                showInfoUpdate(request, response);
                 break;
             default:
                 // hien thi danh sach
@@ -43,10 +43,10 @@ public class ProductServlet extends HttpServlet {
     private void showInfoUpdate(HttpServletRequest request, HttpServletResponse response) {
         int id = Integer.parseInt(request.getParameter("id"));
         Product product = productService.findById(id);
-        request.setAttribute("product",product);
+        request.setAttribute("product", product);
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("view/product/update.jsp");
         try {
-            requestDispatcher.forward(request,response);
+            requestDispatcher.forward(request, response);
         } catch (ServletException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -74,7 +74,7 @@ public class ProductServlet extends HttpServlet {
 
     private void search(HttpServletRequest request, HttpServletResponse response) {
         String name = request.getParameter("name");
-        List<Product> productList=productService.findName(name);
+        List<Product> productList = productService.findName(name);
         request.setAttribute("productList", productList);
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("view/product/search.jsp");
         try {
@@ -115,10 +115,10 @@ public class ProductServlet extends HttpServlet {
                 // them noi
                 break;
             case "delete":
-                delete(request,response);
+                delete(request, response);
                 break;
             case "update":
-                update(request,response);
+                update(request, response);
                 break;
             default:
                 // hien thi danh sach
@@ -140,23 +140,23 @@ public class ProductServlet extends HttpServlet {
         product.setOptions(options);
         product.setVendor(vendor);
 
-        productService.update(id,product);
-        request.setAttribute("mess","cập nhập thành công !");
+        productService.update(id, product);
+        request.setAttribute("mess", "cập nhập thành công !");
 
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("view/product/list.jsp");
         try {
-            requestDispatcher.forward(request,response);
+            requestDispatcher.forward(request, response);
         } catch (ServletException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
-        showListProduct(request,response);
+        showListProduct(request, response);
     }
 
     private void delete(HttpServletRequest request, HttpServletResponse response) {
         productService.remove(Integer.parseInt(request.getParameter("id")));
-        showListProduct(request,response);
+        showListProduct(request, response);
     }
 
     private void save(HttpServletRequest request, HttpServletResponse response) {

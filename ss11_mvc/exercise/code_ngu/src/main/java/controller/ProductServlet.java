@@ -40,10 +40,12 @@ public class ProductServlet extends HttpServlet {
     }
 
     private void search(HttpServletRequest request, HttpServletResponse response) {
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("view/list.jsp");
+
         String name = request.getParameter("name");
         List<Product> products =iProductService.findName(name);
         request.setAttribute("productList",products);
-        RequestDispatcher requestDispatcher = request.getRequestDispatcher("view/list.jsp");
+
         try {
             requestDispatcher.forward(request,response);
         } catch (ServletException e) {

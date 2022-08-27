@@ -8,7 +8,6 @@ public class Product {
     private String vendor;
 
 
-
     public Product() {
     }
 

@@ -15,7 +15,7 @@
 <c:if test="${mess!=null}">
     <span style="color: red">${mess}</span>
 </c:if>
-    <a href="/product">Back to Product list</a>
+<a href="/product">Back to Product list</a>
 </p>
 <form action="/product?action=add" method="post">
     <fieldset>
