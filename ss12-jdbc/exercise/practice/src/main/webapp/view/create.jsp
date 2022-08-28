@@ -9,6 +9,16 @@
 <html>
 <head>
     <title>Title</title>
+    <style>
+        a{
+            color: blue;
+            text-decoration: none;
+        }
+        a:hover{
+            color: red;
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
 <h1>Tạo mới user</h1>

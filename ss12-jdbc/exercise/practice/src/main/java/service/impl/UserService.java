@@ -41,7 +41,7 @@ public class UserService implements IUserService {
     }
 
     @Override
-    public List<User> sort() {
-        return iUserRepository.sort();
+    public List<User> sortIncrease() {
+        return iUserRepository.sortIncrease();
     }
 }

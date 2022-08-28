@@ -17,7 +17,7 @@ public class UserRepository implements IUserRepository {
     private static final String SELECT_USER_COUNTRY = "select id,name,email,country from users where country like ";
     private static final String SELECT_USER_BY_ID = "select id,name,email,country from users where id =?";
     private static final String SELECT_ALL_USERS = "select * from users";
-    private static final String SELECT_ALL_SORT = "select * from users order by name";
+    private static final String SELECT_ALL_SORT_INCREASE = "select * from users order by name";
     private static final String DELETE_USERS_SQL = "delete from users where id = ?;";
     private static final String UPDATE_USERS_SQL = "update users set name = ?,email= ?, country =? where id = ?;";
 
@@ -134,11 +134,11 @@ public class UserRepository implements IUserRepository {
     }
 
     @Override
-    public List<User> sort() {
+    public List<User> sortIncrease() {
         List<User> users = new ArrayList<>();
         Connection connection = BaseRepository.getConnectDB();
         try {
-            PreparedStatement preparedStatement = connection.prepareStatement(SELECT_ALL_SORT);
+            PreparedStatement preparedStatement = connection.prepareStatement(SELECT_ALL_SORT_INCREASE);
             System.out.println(preparedStatement);
             ResultSet rs = preparedStatement.executeQuery();
             while (rs.next()) {

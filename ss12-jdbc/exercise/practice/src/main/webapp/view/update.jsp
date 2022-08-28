@@ -9,6 +9,16 @@
 <html>
 <head>
     <title>Title</title>
+    <style>
+        a{
+            color: blue;
+            text-decoration: none;
+        }
+        a:hover{
+            color: red;
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
 <h3>Cập nhập user</h3>
@@ -32,11 +42,11 @@
                 <td><input name="country" value="${user.getCountry()}"></td>
             </tr>
             <tr>
+                <td></td>
                 <td><input type="submit" value="Cập nhập"></td>
-                <td><a href="/user">Không</a></td>
             </tr>
         </table>
     </fieldset>
-
+</form>
 </body>
 </html>

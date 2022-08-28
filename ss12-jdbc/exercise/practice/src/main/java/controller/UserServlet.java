@@ -19,6 +19,7 @@ public class UserServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
         String action = request.getParameter("action");
         if (action == null) {
             action = "";
@@ -36,17 +37,17 @@ public class UserServlet extends HttpServlet {
             case "delete":
                 showFormDelete(request, response);
                 break;
-            case "sort":
-                sort(request, response);
+            case "sortIncrease":
+                sortIncrease(request, response);
                 break;
             default:
                 showList(request, response);
         }
     }
 
-    private void sort(HttpServletRequest request, HttpServletResponse response) {
+    private void sortIncrease(HttpServletRequest request, HttpServletResponse response) {
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("view/list.jsp");
-        List<User> userList = iUserService.sort();
+        List<User> userList = iUserService.sortIncrease();
         request.setAttribute("users", userList);
         try {
             requestDispatcher.forward(request, response);
@@ -73,7 +74,7 @@ public class UserServlet extends HttpServlet {
     }
 
     private void search(HttpServletRequest request, HttpServletResponse response) {
-        RequestDispatcher requestDispatcher = request.getRequestDispatcher("view/list.jsp");
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("view/find.jsp");
         String name = request.getParameter("txtCountry");
         List<User> userList = iUserService.findCountry(name);
         request.setAttribute("users", userList);
@@ -127,6 +128,7 @@ public class UserServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
         String action = request.getParameter("action");
         if (action == null) {
             action = "";

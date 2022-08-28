@@ -9,9 +9,19 @@
 <html>
 <head>
     <title>Xóa sản phẩm</title>
+    <style>
+        a{
+            color: blue;
+            text-decoration: none;
+        }
+        a:hover{
+            color: red;
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
-<h3>Xóa sản phẩm</h3>
+<h3>Xóa user</h3>
 <p>
     <a href="/user">Về trang quản lý user</a>
 </p>
@@ -33,8 +43,8 @@
                 <td>${user.getCountry()}</td>
             </tr>
             <tr>
+                <td></td>
                 <td><input type="submit" value="Xóa"></td>
-                <td><a href="/user">Không</a></td>
             </tr>
         </table>
     </fieldset>

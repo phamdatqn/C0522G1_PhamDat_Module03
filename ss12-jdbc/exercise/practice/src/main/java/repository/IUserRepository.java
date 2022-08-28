@@ -17,5 +17,5 @@ public interface IUserRepository {
 
     void create(User user);
 
-    List<User> sort();
+    List<User> sortIncrease();
 }
