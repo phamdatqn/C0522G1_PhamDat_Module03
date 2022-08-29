@@ -50,18 +50,8 @@
         </tr>
         <tr>
             <td>
-                <select>
-                    <option disabled>sắp xếp theo tên</option>
-                    <option>
-                        <button name="action" type="submit" value="sortIncrease">Sắp xếp tên tăng dần</button>
-                    </option>
-                    <option id="idSortDecrease">Giảm dần</option>
-                </select>
+                <button name="action" type="submit" value="sortIncrease">Sắp xếp tên tăng dần</button>
             </td>
-
-<%--                            <td>--%>
-<%--                                <button name="action" type="submit" value="sortIncrease">Sắp xếp tên tăng dần</button>--%>
-<%--                            </td>--%>
         </tr>
     </table>
 
@@ -86,15 +76,15 @@
                 <td>${user.name}</td>
                 <td>${user.email}</td>
                 <td>${user.country}</td>
-                <td><a href="/user?action=update&id=${user.getId()}">update</a></td>
-                <td><a href="/user?action=delete&id=${user.getId()}">delete</a></td>
-                    <%--                <td>--%>
-                    <%--                    <button onclick="objDelete('${user.getId()}' ,'${user.getName()}')"--%>
-                    <%--                            data-bs-toggle="modal" data-bs-target="#exampleModal">--%>
-                    <%--                        <a href="#"><i class="fa-solid fa-trash-can"></i></a>--%>
-                    <%--                    </button>--%>
-                    <%--                </td>--%>
-
+                <td>
+                    <a href="/user?action=update&id=${user.getId()}">update</a>
+                   </td>
+                <td>
+                    <!-- Button trigger modal -->
+                    <button type="submit" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        Delete
+                    </button>
+                </td>
             </tr>
         </c:forEach>
     </table>
@@ -104,35 +94,9 @@
     <button name="add">Thêm mới</button>
 </form>
 
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <form action="/user" method="post">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Thông báo</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <input type="text" hidden name="id" id="idDelete">
-                    <input type="text" hidden name="action" value="delete">
-                    <span> Bạn có muốn xóa : </span>
-                    <span id="nameDelete">  </span>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Không</button>
-                    <button type="submit" class="btn btn-primary">Có</button>
-                </div>
-            </div>
-        </form>
-    </div>
 </div>
 </body>
 <script>
-    function objDelete(id, name) {
-        document.getElementById("idDelete").value = id;
-        document.getElementById("nameDelete").innerText = name;
-    }
-
     function sortIncrease(name, value) {
         document.getElementById("idSortIncrease").value = name;
         document.getElementsByName("nameSortIncrease").value = value;

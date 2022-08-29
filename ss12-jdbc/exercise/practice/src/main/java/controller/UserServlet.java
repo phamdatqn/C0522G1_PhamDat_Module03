@@ -88,17 +88,24 @@ public class UserServlet extends HttpServlet {
     }
 
     private void showFormDelete(HttpServletRequest request, HttpServletResponse response) {
-        RequestDispatcher requestDispatcher = request.getRequestDispatcher("view/delete.jsp");
-        int id = (Integer.parseInt(request.getParameter("id")));
-        User user = iUserService.findById(id);
-        request.setAttribute("user", user);
+        int id = Integer.parseInt(request.getParameter("id"));
+        iUserService.delete(id);
         try {
-            requestDispatcher.forward(request, response);
-        } catch (ServletException e) {
-            e.printStackTrace();
+            response.sendRedirect("/user");
         } catch (IOException e) {
             e.printStackTrace();
         }
+//        RequestDispatcher requestDispatcher = request.getRequestDispatcher("view/delete.jsp");
+//        int id = (Integer.parseInt(request.getParameter("id")));
+//        User user = iUserService.findById(id);
+//        request.setAttribute("user", user);
+//        try {
+//            requestDispatcher.forward(request, response);
+//        } catch (ServletException e) {
+//            e.printStackTrace();
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
     }
 
     private void showList(HttpServletRequest request, HttpServletResponse response) {
@@ -138,7 +145,7 @@ public class UserServlet extends HttpServlet {
                 save(request, response);
                 break;
             case "delete":
-                delete(request, response);
+//                delete(request, response);
                 break;
             case "update":
                 update(request, response);
@@ -176,13 +183,13 @@ public class UserServlet extends HttpServlet {
         }
     }
 
-    private void delete(HttpServletRequest request, HttpServletResponse response) {
-        int id = Integer.parseInt(request.getParameter("id"));
-        iUserService.delete(id);
-        try {
-            response.sendRedirect("/user");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
+//    private void delete(HttpServletRequest request, HttpServletResponse response) {
+//        int id = Integer.parseInt(request.getParameter("id"));
+//        iUserService.delete(id);
+//        try {
+//            response.sendRedirect("/user");
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//    }
 }

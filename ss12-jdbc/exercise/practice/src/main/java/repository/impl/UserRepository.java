@@ -40,7 +40,6 @@ public class UserRepository implements IUserRepository {
             e.printStackTrace();
         }
         return users;
-
     }
 
     @Override
@@ -84,7 +83,6 @@ public class UserRepository implements IUserRepository {
         Connection connection = BaseRepository.getConnectDB();
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(SELECT_USER_COUNTRY + " \"%" + searchCountry + "%\"");
-//            System.out.println(preparedStatement);
             ResultSet rs = preparedStatement.executeQuery();
             while (rs.next()) {
                 int id = rs.getInt("id");

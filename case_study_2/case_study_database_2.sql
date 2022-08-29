@@ -1,4 +1,4 @@
-create database if not exists case_study_database_2;
+userscreate database if not exists case_study_database_2;
 use case_study_database_2; 
 
 create table `position`(
