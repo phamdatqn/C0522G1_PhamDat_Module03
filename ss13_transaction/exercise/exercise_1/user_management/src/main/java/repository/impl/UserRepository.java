@@ -90,7 +90,6 @@ public class UserRepository implements IUserRepository {
         }
     }
 
-
     @Override
     public boolean updateCallable(int id, User user) {
         boolean rowUpdated = false;

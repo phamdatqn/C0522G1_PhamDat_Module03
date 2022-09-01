@@ -39,7 +39,6 @@ public class UserServlet extends HttpServlet {
         }
     }
 
-
     private void showFormUpdate(HttpServletRequest request, HttpServletResponse response) {
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("view/update.jsp");
         int id = Integer.parseInt(request.getParameter("id"));

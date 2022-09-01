@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="apache-tomcat-9.0.65">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/build_landing_page/img/apache-tomcat-9.0.65.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

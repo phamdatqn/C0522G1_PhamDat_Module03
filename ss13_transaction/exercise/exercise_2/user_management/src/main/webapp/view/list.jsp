@@ -77,7 +77,7 @@
                 <td>${user.email}</td>
                 <td>${user.country}</td>
                 <td>
-                    <a href="/user?action=update&id=${user.getId()}">update</a>
+                    <a href="/furama?action=update&id=${user.getId()}">update</a>
                    </td>
                 <td>
                     <button onclick="infoDelete('${user.getId()}','${user.getName()}')" type="button"

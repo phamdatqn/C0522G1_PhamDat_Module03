@@ -37,7 +37,6 @@ public class UserRepository implements IUserRepository {
             e.printStackTrace();
         }
         return users;
-
     }
 
     @Override
@@ -105,7 +104,6 @@ public class UserRepository implements IUserRepository {
             statement.setString(1, user.getName());
             statement.setString(2, user.getEmail());
             statement.setString(3, user.getCountry());
-
             rowUpdated = statement.executeUpdate() > 0;
         } catch (SQLException throwables) {
             throwables.printStackTrace();
@@ -207,9 +205,7 @@ public class UserRepository implements IUserRepository {
             int userId = 0;
             if (rs.next())
                 userId = rs.getInt(1);
-            //
             // in case the insert operation successes, assign permision to user
-            //
             if (rowAffected == 1) {
                 // assign permision to user
                 String sqlPivot = "INSERT INTO user_permision(user_id,permision_id) "
@@ -225,9 +221,7 @@ public class UserRepository implements IUserRepository {
                 connection.rollback();
             }
         } catch (SQLException ex) {
-
             // roll back the transaction
-
             try {
                 if (connection != null)
                     connection.rollback();
@@ -244,8 +238,6 @@ public class UserRepository implements IUserRepository {
             } catch (SQLException e) {
                 e.printStackTrace();
             }
-
         }
-
     }
 }
