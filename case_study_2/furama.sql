@@ -194,8 +194,13 @@ VALUES
 ('Room Twin 01',5000,1000000,2,'normal','Có tivi',null,null,'1 Xe máy, 1 Xe đạp',4,3),
 ('Villa No Beach Front',22000,9000000,8,'normal','Có hồ bơi',300,3,null,3,1),
 ('House Princess 02',10000,4000000,5,'normal','Có thêm bếp nướng',null,2,null,3,2),
-('Room Twin 02',3000,900000,2,'normal','Có tivi',null,null,'1 Xe máy',4,3);
+('Room Twin 02',3000,900000,2,'normal','Có tivi',null,null,'1 Xe máy',4,3),
+('House Princess 03',10000,4000000,5,'normal','Có thêm bếp nướng',null,2,null,3,2);
+update facility set name='111',area=40000,cost=190000,max_people=4,rent_type_id=2,facility_type_id=1,standard_room='vip',description_other_convenience='có xe đạp',
+ pool_area=400, number_of_floors=3, facility_free='xe đạp' where id=7 and is_delete=0;
 
+insert into facility(`name`,area,cost,max_people,rent_type_id,facility_type_id,standard_room,description_other_convenience,pool_area,number_of_floors,facility_free) 
+value("dat",5000,900000,6,3,2,'vip','có ghế tình yêu',200,3,null);
 
 CREATE TABLE IF NOT EXISTS contract (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -226,8 +231,7 @@ VALUES
 ('2020-11-19','2020-11-19',0,3,4,3),
 ('2021-04-12','2021-04-14',0,10,3,5),
 ('2021-04-25','2021-04-25',0,2,2,1),
-('2021-05-25','2021-05-27',0,7,10,1),
-('2019-12-12','2019-12-12',0,2,11,1);
+('2021-05-25','2021-05-27',0,7,10,1);
 
 
 CREATE TABLE IF NOT EXISTS attach_facility (
@@ -274,3 +278,5 @@ update customer set name="Đạt Phạm" where id=11 and is_delete=0;
 
 update customer set customer_type_id=3,name="ĐẠT",gender=0,date_of_birth="1991-11-11",id_card="123456789",
             phone_number="123456",email="testupdate",address="kệ" where id=11 and is_delete=0;
+SELECT * FROM customer_type where is_delete=0;
+SELECT * FROM facility where is_delete=0

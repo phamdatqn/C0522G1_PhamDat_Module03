@@ -52,11 +52,11 @@
                             Employee
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarEmployee">
-                            <li><a class="dropdown-item" href="#">Thêm mới nhân viên</a></li>
+                            <li><a class="dropdown-item" href="/employee?action=add">Thêm mới nhân viên</a></li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a class="dropdown-item" href="#">Quản lý nhân viên</a></li>
+                            <li><a class="dropdown-item" href="/employee">Quản lý nhân viên</a></li>
                         </ul>
                     </li>
 
@@ -66,7 +66,7 @@
                             Customer
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarCustomer">
-                            <li><a class="dropdown-item" href="customer/create.jsp">Thêm mới khách hàng</a></li>
+                            <li><a class="dropdown-item" href="/customer?action=add">Thêm mới khách hàng</a></li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
@@ -80,11 +80,11 @@
                             Service
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarFacility">
-                            <li><a class="dropdown-item" href="#">Thêm mới cơ sở</a></li>
+                            <li><a class="dropdown-item" href="/facility?action=add">Thêm mới cơ sở</a></li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a class="dropdown-item" href="#">Quản lý Cơ Sở</a></li>
+                            <li><a class="dropdown-item" href="/facility">Quản lý Cơ Sở</a></li>
                         </ul>
                     </li>
 
@@ -94,11 +94,11 @@
                             Contract
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarContract">
-                            <li><a class="dropdown-item" href="#">Thêm mới hợp đồng</a></li>
+                            <li><a class="dropdown-item" href="/contract?action=add">Thêm mới hợp đồng</a></li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a class="dropdown-item" href="#">Quản lý hợp đông</a></li>
+                            <li><a class="dropdown-item" href="/contract">Quản lý hợp đông</a></li>
                         </ul>
                     </li>
                 </ul>

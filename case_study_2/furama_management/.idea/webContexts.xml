@@ -3,7 +3,9 @@
   <component name="WebContextManager">
     <option name="state">
       <map>
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/view/contract/list.jsp" value="file://$PROJECT_DIR$/src/main/webapp/view/contract" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/view/customer/list.jsp" value="file://$PROJECT_DIR$/src/main/webapp/view/customer" />
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/view/facility/list.jsp" value="file://$PROJECT_DIR$/src/main/webapp/view/facility" />
       </map>
     </option>
   </component>

@@ -1,10 +1,11 @@
 package controller;
 
-import model.Customer;
-import service.ICustomerService;
-import service.ICustomerTypeService;
-import service.impl.CustomerService;
-import service.impl.CustomerTypeService;
+import model.customer.Customer;
+import model.customer.CustomerType;
+import service.I_customer.ICustomerService;
+import service.I_customer.ICustomerTypeService;
+import service.impl.customer.CustomerService;
+import service.impl.customer.CustomerTypeService;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -43,10 +44,17 @@ public class CustomerServlet extends HttpServlet {
     }
 
     private void showFormUpdate(HttpServletRequest request, HttpServletResponse response) {
-        RequestDispatcher requestDispatcher = request.getRequestDispatcher("view/customer/update.jsp");
         int id = Integer.parseInt(request.getParameter("id"));
-        Customer customer = iCustomerService.findById(id);
-        request.setAttribute("customers", customer);
+        Customer customer=iCustomerService.findById(id);
+        RequestDispatcher requestDispatcher;
+        if (customer == null) {
+            requestDispatcher = request.getRequestDispatcher("view/customer/error.jsp");
+        } else {
+            request.setAttribute("customerTypeList", iCustomerTypeService.findAll());
+            request.setAttribute("customer",customer );
+            requestDispatcher = request.getRequestDispatcher("view/customer/update.jsp");
+        }
+
         try {
             requestDispatcher.forward(request, response);
         } catch (ServletException e) {
@@ -107,7 +115,7 @@ public class CustomerServlet extends HttpServlet {
         String phoneNumber = request.getParameter("phoneNumber");
         String email = request.getParameter("email");
         String address = request.getParameter("address");
-        int customerTypeId = Integer.parseInt((request.getParameter("customerTypeId")));
+        int customerTypeId = Integer.parseInt((request.getParameter("customerType")));
 
         iCustomerService.create(new Customer(name, gender, dateOfBirth, idCard, phoneNumber, email, address, customerTypeId));
 
@@ -120,6 +128,8 @@ public class CustomerServlet extends HttpServlet {
 
     private void showFormCreate(HttpServletRequest request, HttpServletResponse response) {
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("view/customer/create.jsp");
+        List<CustomerType>customerTypeList=iCustomerTypeService.findAll();
+        request.setAttribute("customerTypeList",customerTypeList );
         try {
             requestDispatcher.forward(request, response);
         } catch (ServletException e) {
@@ -133,7 +143,7 @@ public class CustomerServlet extends HttpServlet {
         int id = Integer.parseInt(request.getParameter("id"));
         Customer customer = iCustomerService.findById(id);
 
-        customer.setCustomerTypeId(Integer.parseInt(request.getParameter("customerTypeId")));
+        customer.setCustomerTypeId(Integer.parseInt(request.getParameter("customerType")));
         customer.setName(request.getParameter("name"));
         customer.setGender(Boolean.parseBoolean(request.getParameter("gender")));
         customer.setDateOfBirth(request.getParameter("dateOfBirth"));

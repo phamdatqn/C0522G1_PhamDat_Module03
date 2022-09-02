@@ -10,6 +10,10 @@
 <html>
 <head>
     <title>Quản lý khách hàng</title>
+
+    <link rel="stylesheet" href="webapp/bootstrap413/css/bootstrap.min.css">
+    <link rel="stylesheet" href="webapp/datatables/css/dataTables.bootstrap4.min.css">
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
           rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
           crossorigin="anonymous">
@@ -29,7 +33,8 @@
         }
     </style>
 </head>
-<a href="view/home.jsp" style="color: #0d6efd;margin-top: 40px;font-size: 30px"><span class="bi bi-house-door" style="font-size: 30px; color: #4267b2;"> Back To Home</span></a><br><br><br>
+<a href="view/home.jsp" style="color: #0d6efd;margin-top: 40px;font-size: 30px"><span class="bi bi-house-door"
+                                                                                      style="font-size: 30px; color: #4267b2;"> Back To Home</span></a><br><br><br>
 
 <h3 style="color: #6a1a21;text-align: center">Quản Lý Khách Hàng</h3>
 
@@ -46,12 +51,13 @@
     <button type="submit">Search</button>
 </form>
 
-<p><a href="/view/customer/create.jsp">
+<p><a href="/customer?action=add">
     <button type="button" style="background: #0dcaf0;margin-left: 5px">Thêm mới</button>
 </a></p>
 
 <div style="text-align: center">
-    <table class="table table-striped">
+    <table id="tableCustomer" class="table table-striped">
+        <thead>
         <tr style="background: aquamarine">
             <th>STT</th>
             <th>Họ và tên</th>
@@ -63,6 +69,8 @@
             <th>Cập nhập</th>
             <th>Xóa</th>
         </tr>
+        </thead>
+        <tbody>
         <c:forEach varStatus="status" var="customers" items="${customersList}">
             <tr>
                 <td>${status.count}</td>
@@ -82,12 +90,13 @@
                 <td>${customers.getDateOfBirth()}</td>
                 <td>${customers.getPhoneNumber()}</td>
                 <td>${customers.getAddress()}</td>
-            <c:forEach var="customerTypeList" items="${customerTypeList}">
-                <c:if test="${customerTypeList.id==customers.customerTypeId}">
-                    <td><input hidden id="${status.count}" value="${customerTypeList.name}">
-                        <span >${customerTypeList.name}</span></td>
-                </c:if>
-            </c:forEach>
+
+                <c:forEach var="customerTypeList" items="${customerTypeList}">
+                    <c:if test="${customerTypeList.id==customers.customerTypeId}">
+                        <td><input hidden id="${status.count}" value="${customerTypeList.name}">
+                            <span>${customerTypeList.name}</span></td>
+                    </c:if>
+                </c:forEach>
                 <td>
                     <a href="/customer?action=update&id=${customers.getId()}">
                         <button type="button" class="btn btn-primary">Update</button>
@@ -101,6 +110,7 @@
                 </td>
             </tr>
         </c:forEach>
+        </tbody>
     </table>
 </div>
 
@@ -203,5 +213,19 @@
         document.getElementById("emailCustomer").innerHTML = email;
         document.getElementById("addressCustomer").innerHTML = address;
     }
+
+</script>
+
+<script src="jquery/jquery-3.5.1.min.js"></script>
+<script src="datatables/js/jquery.dataTables.min.js"></script>
+<script src="datatables/js/dataTables.bootstrap4.min.js"></script>
+<script>
+    $(document).ready(function (){
+        $('#tableCustomer').dataTable({
+            "dom": 'lrtip',
+            "lengthChange": false,
+            "pageLength": 4
+        });
+    });
 </script>
 </html>
