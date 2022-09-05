@@ -1,6 +1,7 @@
 package repository.impl.customer;
 
 import model.customer.Customer;
+import model.employee.Employee;
 import repository.BaseRepository;
 import repository.i_customer.ICustomerRepository;
 
@@ -10,6 +11,7 @@ import java.util.List;
 
 public class CustomerRepository implements ICustomerRepository {
     private static final String SELECT_ALL = "select * from customer where is_delete=0;";
+    private static final String SEARCH = "call sp_search_customer(?,?,?);";
     private static final String SELECT_FIND_BY_ID = "select * from customer where id=? and is_delete=0;";
     private static final String DELETE_CUSTOMER_SQL = "update customer set is_delete=1 where id=? and is_delete=0;";
     private static final String UPDATE_CUSTOMER_SQL = "update customer set customer_type_id=?,name=?,gender=?,date_of_birth=?,id_card=?,phone_number=?,email=?,address=? where id=? and is_delete=0;";
@@ -119,5 +121,33 @@ public class CustomerRepository implements ICustomerRepository {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public List<Customer> search(String nameSearch, String nameAddress, String phoneNumberSearch) {
+        List<Customer> customerListSearch=new ArrayList<>();
+        Connection connection=BaseRepository.getConnectDB();
+        try {
+            CallableStatement callableStatement=connection.prepareCall(SEARCH);
+            callableStatement.setString(1,nameSearch);
+            callableStatement.setString(2,nameAddress);
+            callableStatement.setString(3,phoneNumberSearch);
+            ResultSet resultSet=callableStatement.executeQuery();
+            while (resultSet.next()){
+                int id = resultSet.getInt("id");
+                int customerTypeId = resultSet.getInt("customer_type_id");
+                String name = resultSet.getString("name");
+                boolean gender = resultSet.getBoolean("gender");
+                String dateOfBirth = resultSet.getString("date_of_birth");
+                String idCard = resultSet.getString("id_card");
+                String phoneNumber = resultSet.getString("phone_number");
+                String email = resultSet.getString("email");
+                String address = resultSet.getString("address");
+                customerListSearch.add(new Customer(id, customerTypeId, name, gender, dateOfBirth, idCard, phoneNumber, email, address));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return customerListSearch;
     }
 }

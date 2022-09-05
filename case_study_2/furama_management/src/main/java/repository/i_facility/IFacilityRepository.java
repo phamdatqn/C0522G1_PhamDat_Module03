@@ -16,4 +16,6 @@ public interface IFacilityRepository {
 
     void create(Facility facility);
 
+    List<Facility> search(String nameSearch);
+
 }

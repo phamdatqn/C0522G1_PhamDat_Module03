@@ -40,6 +40,9 @@ public class EmloyeeServlet extends HttpServlet {
             case "add":
                 showFormCreate(request, response);
                 break;
+            case "search":
+                search(request, response);
+                break;
             case "delete":
                 delete(request, response);
                 break;
@@ -48,6 +51,27 @@ public class EmloyeeServlet extends HttpServlet {
                 break;
             default:
                 showAll(request, response);
+        }
+    }
+
+    private void search(HttpServletRequest request, HttpServletResponse response) {
+        String nameSearch=request.getParameter("nameSearch");
+        String addressSearch=request.getParameter("addressSearch");
+        String phoneNumberSearch=request.getParameter("phoneNumberSearch");
+
+        request.setAttribute("positionList", iPositionService.displayAll());
+        request.setAttribute("divisionList", iDivisionService.displayAll());
+        request.setAttribute("educationDegreeList", iEducationDegreeService.displayAll());
+        List<Employee>employeeList=iEmployeeService.search(nameSearch,addressSearch,phoneNumberSearch);
+        request.setAttribute("employeeList",employeeList);
+
+        RequestDispatcher requestDispatcher =request.getRequestDispatcher("view/employee/search.jsp");
+        try {
+            requestDispatcher.forward(request,response);
+        } catch (ServletException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
@@ -85,15 +109,11 @@ public class EmloyeeServlet extends HttpServlet {
     }
 
     private void showAll(HttpServletRequest request, HttpServletResponse response) {
-        List<EducationDegree> educationDegreeList = iEducationDegreeService.displayAll();
-        List<Position> positionList = iPositionService.displayAll();
-        List<Division> divisionList = iDivisionService.displayAll();
-        List<Employee> employeeList = iEmployeeService.displayAll();
 
-        request.setAttribute("positionList", positionList);
-        request.setAttribute("divisionList", divisionList);
-        request.setAttribute("educationDegreeList", educationDegreeList);
-        request.setAttribute("employeeList", employeeList);
+        request.setAttribute("positionList", iPositionService.displayAll());
+        request.setAttribute("divisionList", iDivisionService.displayAll());
+        request.setAttribute("educationDegreeList", iEducationDegreeService.displayAll());
+        request.setAttribute("employeeList", iEmployeeService.displayAll());
 
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("view/employee/list.jsp");
         try {

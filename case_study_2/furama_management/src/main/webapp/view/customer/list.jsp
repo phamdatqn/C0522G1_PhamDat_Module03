@@ -33,21 +33,18 @@
         }
     </style>
 </head>
-<a href="view/home.jsp" style="color: #0d6efd;margin-top: 40px;font-size: 30px"><span class="bi bi-house-door"
-                                                                                      style="font-size: 30px; color: #4267b2;"> Back To Home</span></a><br><br><br>
+<body>
+<%@include file="/header.jsp" %>
+
 
 <h3 style="color: #6a1a21;text-align: center">Quản Lý Khách Hàng</h3>
 
-<form action="/customer" method="get">
+<form action="/customer?action=search">
     <input hidden type="text" name="action" value="search">
     <input type="text" name="nameSearch" value="${nameSearch}" placeholder="nhập tên khách hàng">
     <input type="text" name="addressSearch" value="${addressSearch}" placeholder="nhập địa chỉ">
-    <select name="customerType">
-        <option value="" disabled selected>Chọn mã Khách hàng</option>
-        <c:forEach var="customerTypeName" items="${customerTypeList}">
-            <option value="${customerTypeName.id}">${customerTypeName.name}</option>
-        </c:forEach>
-    </select>
+    <input type="text" name="phoneNumberSearch" value="${phoneNumberSearch}" placeholder="nhập số điện thoại">
+
     <button type="submit">Search</button>
 </form>
 
@@ -55,7 +52,7 @@
     <button type="button" style="background: #0dcaf0;margin-left: 5px">Thêm mới</button>
 </a></p>
 
-<div style="text-align: center">
+<div class="container-fluid" style="text-align: center">
     <table id="tableCustomer" class="table table-striped">
         <thead>
         <tr style="background: aquamarine">
@@ -93,8 +90,7 @@
 
                 <c:forEach var="customerTypeList" items="${customerTypeList}">
                     <c:if test="${customerTypeList.id==customers.customerTypeId}">
-                        <td><input hidden id="${status.count}" value="${customerTypeList.name}">
-                            <span>${customerTypeList.name}</span></td>
+                           <td> <span id="${status.count}">${customerTypeList.name}</span></td>
                     </c:if>
                 </c:forEach>
                 <td>
@@ -181,10 +177,6 @@
                     </table>
 
                 </div>
-                <%--                <div class="modal-footer">--%>
-                <%--                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><a href="/view/">Close</a>--%>
-                <%--                    </button>--%>
-                <%--                </div>--%>
             </div>
             </form>
         </div>
@@ -209,7 +201,7 @@
         document.getElementById("dateOfBirthCustomer").innerHTML = dateOfBirth;
         document.getElementById("idCardCustomer").innerHTML = idCard;
         document.getElementById("phoneNumberCustomer").innerHTML = phoneNumber;
-        document.getElementById("customerType").innerText = document.getElementById(customerType).value;
+        document.getElementById("customerType").innerHTML = document.getElementById(customerType).textContent;
         document.getElementById("emailCustomer").innerHTML = email;
         document.getElementById("addressCustomer").innerHTML = address;
     }
@@ -221,7 +213,7 @@
 <script src="datatables/js/dataTables.bootstrap4.min.js"></script>
 <script>
     $(document).ready(function (){
-        $('#tableCustomer').dataTable({
+        $('#tableCub stomer').dataTable({
             "dom": 'lrtip',
             "lengthChange": false,
             "pageLength": 4

@@ -9,57 +9,58 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
-    <title>Tạo khách hàng mới</title>
+    <title>Thêm Mới Hợp Đồng</title>
 </head>
 <body>
-<h3>Thêm mới khách hàng</h3>
+<h3>Thêm mới hợp đồng</h3>
 <p>
-    <a href="/customer">Về trang quản lý khách hàng</a>
+    <a href="/contract">Về trang quản lý hợp đồng</a>
 </p>
 
-<form action="/customer?action=create" method="post">
+<form action="/contract?action=create" method="post">
     <fieldset>
-        <legend style="color: crimson">Thông tin khách hàng</legend>
+        <legend style="color: crimson">Thông tin hợp đồng</legend>
         <table>
             <tr>
-                <td>Tên khách hàng:</td>
-                <td><input name="name" ></td>
+                <td>Ngày bắt đầu:</td>
+                <td><input type="date" name="startDate" ></td>
             </tr>
-            <tr><td>Giới tính:</td>
+            <tr>
+                <td>Ngày kết thúc:</td>
+                <td><input type="date" name="endDate"></td>
+            </tr>
+            <tr><td>Đặt cọc:</td>
+                <td><input name="deposit"></td>
+            </tr>
+            <tr>
+                <td>Tên nhân viên:</td>
                 <td>
-                    <input type="radio" value="true" name="gender" checked>Name
-                    <input type="radio" value="false" name="gender">Nữ
-                </td>
-            </tr>
-            <tr>
-                <td>Ngày sinh:</td>
-                <td><input type="date" name="dateOfBirth" ></td>
-            </tr>
-            <tr>
-                <td>Số CMND:</td>
-                <td><input name="idCard" ></td>
-            </tr>
-            <tr>
-                <td>Số điện thoại:</td>
-                <td><input name="phoneNumber" ></td>
-            </tr>
-            <tr>
-                <td>Email:</td>
-                <td><input name="email" ></td>
-            </tr>
-            <tr>
-                <td>Địa chỉ:</td>
-                <td><input name="address" ></td>
-            </tr>
-            <tr>
-                <td>Loại khách hàng:</td>
-                <td> <select id="customerType" name="customerType">
-                    <c:forEach var="customerType" items="${customerTypeList}">
-                        <option value="${customerType.getId()}">${customerType.getName()}</option>
+                    <select id="employeeId" name="employeeId">
+                    <c:forEach var="employee" items="${employeeList}">
+                        <option value="${employee.getId()}">ID: ${employee.getId()} , Tên: ${employee.getName()}</option>
                     </c:forEach>
                 </select>
                 </td>
             </tr>
+            <tr>
+                <td>Tên Khách Hàng:</td>
+                <td>
+                    <select id="customerId" name="customerId">
+                        <c:forEach var="customer" items="${customerList}">
+                            <option value="${customer.getId()}">ID:${customer.getId()} , Tên: ${customer.getName()}</option>
+                        </c:forEach>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Tên cơ sở:</td>
+                <td>
+                    <select id="facilityId" name="facilityId">
+                        <c:forEach var="facility" items="${facilityList}">
+                            <option value="${facility.getId()}">${facility.getName()}</option>
+                        </c:forEach>
+                    </select>
+                </td>
             <tr>
                 <td></td>
                 <td><input type="submit" value="Create"></td>

@@ -15,6 +15,7 @@ import java.util.List;
 
 public class FacilityRepository implements IFacilityRepository {
     private static String SELECT_ALL_FACILITY = "SELECT * FROM facility where is_delete=0;";
+    private static String SEARCH="Select * from facility where name like ?;";
     private static String SELECT_FACILITY_BY_ID ="select * from facility where is_delete=0 and id=?;";
     private static String DELETE_FACILITY_BY_ID="update facility set is_delete=1 where id=? and is_delete=0;";
     private static  String UPDATE_FACILITY_SQL = "update facility set name=?,area=?,cost=?,max_people=?,rent_type_id=?,facility_type_id=?," +
@@ -139,5 +140,35 @@ public class FacilityRepository implements IFacilityRepository {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public List<Facility> search(String nameSearch) {
+        List<Facility>facilityListSearch=new ArrayList<>();
+        Connection connection =BaseRepository.getConnectDB();
+        try {
+            PreparedStatement preparedStatement=connection.prepareStatement(SEARCH);
+            preparedStatement.setString(1,"%"+(nameSearch==null?"":nameSearch)+"%");
+            ResultSet resultSet=preparedStatement.executeQuery();
+            while (resultSet.next()){
+                int id=resultSet.getInt("id");
+                String name=resultSet.getString("name");
+                int area=resultSet.getInt("area");
+                double cost=resultSet.getDouble("cost");
+                int maxPeopel=resultSet.getInt("max_people");
+                int rentTypeId=resultSet.getInt("rent_type_id");
+                int facilityTypeId=resultSet.getInt("facility_type_id");
+                String standardRoom=resultSet.getString("standard_room");
+                String descriptionOtherConvenience=resultSet.getString("description_other_convenience");
+                double poolArea=resultSet.getDouble("pool_area");
+                int number_of_floors=resultSet.getInt("number_of_floors");
+                String facilityFree=resultSet.getString("facility_free");
+                facilityListSearch.add(new Facility(id,name,area,cost,maxPeopel,rentTypeId,facilityTypeId,
+                        standardRoom,descriptionOtherConvenience,poolArea,number_of_floors,facilityFree));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return facilityListSearch;
     }
 }

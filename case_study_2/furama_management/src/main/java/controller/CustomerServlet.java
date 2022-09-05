@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
+import java.util.Map;
 
 @WebServlet(name = "CustomerServlet", value = "/customer")
 public class CustomerServlet extends HttpServlet {
@@ -32,6 +33,9 @@ public class CustomerServlet extends HttpServlet {
             case "add":
                 showFormCreate(request, response);
                 break;
+            case "search":
+                search(request, response);
+                break;
             case "delete":
                 delete(request, response);
                 break;
@@ -40,6 +44,25 @@ public class CustomerServlet extends HttpServlet {
                 break;
             default:
                 showAll(request, response);
+        }
+    }
+
+    private void search(HttpServletRequest request, HttpServletResponse response) {
+        String nameSearch=request.getParameter("nameSearch");
+        String addressSearch=request.getParameter("addressSearch");
+        String phoneNumberSearch=request.getParameter("phoneNumberSearch");
+
+        request.setAttribute("customerTypeList", iCustomerTypeService.findAll());
+        List<Customer> customerListSearch= iCustomerService.search(nameSearch,addressSearch,phoneNumberSearch);
+        request.setAttribute("customersList",customerListSearch);
+
+        RequestDispatcher requestDispatcher=request.getRequestDispatcher("view/customer/search.jsp");
+        try {
+            requestDispatcher.forward(request,response);
+        } catch (ServletException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
@@ -117,10 +140,19 @@ public class CustomerServlet extends HttpServlet {
         String address = request.getParameter("address");
         int customerTypeId = Integer.parseInt((request.getParameter("customerType")));
 
-        iCustomerService.create(new Customer(name, gender, dateOfBirth, idCard, phoneNumber, email, address, customerTypeId));
-
+        Customer customer=new Customer(name, gender, dateOfBirth, idCard, phoneNumber, email, address, customerTypeId);
+        Map<String,String> map= iCustomerService.create(customer);
+        String mess ="Thêm mới thành công !";
+        if (!map.isEmpty()){
+            mess="Thêm mới không thành công";
+            request.setAttribute("error",map);
+        }
+        request.setAttribute("mess", mess);
+       RequestDispatcher requestDispatcher=request.getRequestDispatcher("view/customer/create.jsp");
         try {
-            response.sendRedirect("/customer");
+            requestDispatcher.forward(request,response);
+        } catch (ServletException e) {
+            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }

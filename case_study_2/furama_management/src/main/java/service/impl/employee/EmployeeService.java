@@ -34,4 +34,9 @@ public class EmployeeService implements IEmployeeService {
     public void create(Employee employee) {
         iEmployeeRepository.create(employee);
     }
+
+    @Override
+    public List<Employee> search(String nameSearch, String nameAddress, String phoneNumberSearch) {
+        return iEmployeeRepository.search(nameSearch,nameAddress,phoneNumberSearch);
+    }
 }

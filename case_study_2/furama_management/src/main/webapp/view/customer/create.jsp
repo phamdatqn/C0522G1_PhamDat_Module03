@@ -17,15 +17,23 @@
     <a href="/customer">Về trang quản lý khách hàng</a>
 </p>
 
+<c:if test="${mess!=null}">
+    <p style="color: red">${mess}</p>
+</c:if>
+
 <form action="/customer?action=create" method="post">
     <fieldset>
         <legend style="color: crimson">Thông tin khách hàng</legend>
         <table>
             <tr>
                 <td>Tên khách hàng:</td>
-                <td><input name="name" ></td>
+                <td><input name="name"></td>
+                <c:if test="${error!=null}">
+                    <td><span style="color: red">${error.get("name")}</span></td>
+                </c:if>
             </tr>
-            <tr><td>Giới tính:</td>
+            <tr>
+                <td>Giới tính:</td>
                 <td>
                     <input type="radio" value="true" name="gender" checked>Name
                     <input type="radio" value="false" name="gender">Nữ
@@ -33,27 +41,36 @@
             </tr>
             <tr>
                 <td>Ngày sinh:</td>
-                <td><input type="date" name="dateOfBirth" ></td>
+                <td><input type="date" name="dateOfBirth"></td>
             </tr>
             <tr>
                 <td>Số CMND:</td>
-                <td><input name="idCard" ></td>
+                <td><input name="idCard"></td>
+                <c:if test="${error!=null}">
+                    <td><span style="color: red">${error.get("idCard")}</span></td>
+                </c:if>
             </tr>
             <tr>
                 <td>Số điện thoại:</td>
-                <td><input name="phoneNumber" ></td>
+                <td><input name="phoneNumber"></td>
+                <c:if test="${error!=null}">
+                    <td><span style="color: red">${error.get("phoneNumber")}</span></td>
+                </c:if>
             </tr>
             <tr>
                 <td>Email:</td>
-                <td><input name="email" ></td>
+                <td><input name="email"></td>
+                <c:if test="${error!=null}">
+                    <td><span style="color: red">${error.get("email")}</span></td>
+                </c:if>
             </tr>
             <tr>
                 <td>Địa chỉ:</td>
-                <td><input name="address" ></td>
+                <td><input name="address"></td>
             </tr>
             <tr>
                 <td>Loại khách hàng:</td>
-                <td> <select id="customerType" name="customerType">
+                <td><select id="customerType" name="customerType">
                     <c:forEach var="customerType" items="${customerTypeList}">
                         <option value="${customerType.getId()}">${customerType.getName()}</option>
                     </c:forEach>

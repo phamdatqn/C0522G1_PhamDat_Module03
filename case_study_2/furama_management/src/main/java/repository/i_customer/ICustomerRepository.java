@@ -1,6 +1,7 @@
 package repository.i_customer;
 
 import model.customer.Customer;
+import model.employee.Employee;
 
 import java.util.List;
 
@@ -15,5 +16,5 @@ public interface ICustomerRepository {
 
     void create(Customer customer);
 
-
+    List<Customer> search(String nameSearch, String nameAddress, String phoneNumberSearch);
 }

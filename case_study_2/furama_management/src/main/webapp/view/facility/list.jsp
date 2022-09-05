@@ -32,7 +32,8 @@
         }
     </style>
 </head>
-<a href="view/home.jsp" style="color: #0d6efd;margin-top: 40px;font-size: 30px"><span class="bi bi-house-door" style="font-size: 30px; color: #4267b2;"> Back To Home</span></a><br><br><br>
+<body>
+<%@include file="/header.jsp" %>
 
 <h3 style="color: #6a1a21;text-align: center">Quản lý cơ sở</h3>
 

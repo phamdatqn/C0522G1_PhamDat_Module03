@@ -13,4 +13,9 @@ public class ContractService implements IContractService {
     public List<Contract> displayAll() {
         return iContractRepository.displayAll();
     }
+
+    @Override
+    public void create(Contract contract) {
+        iContractRepository.create(contract);
+    }
 }

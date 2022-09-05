@@ -47,12 +47,22 @@
                 <td><input name="maxPeople" value="${facility.getMaxPeople()}"></td>
             </tr>
             <tr>
-                <td>Mã Kiểu thuê:</td>
-                <td><input name="renTypeId" value="${facility.getRentTypeId()}"></td>
+                <td>Kiểu thuê:</td>
+                <td> <select id="rentType" name="rentTypeId">
+                    <c:forEach var="rentType" items="${rentTypeList}">
+                        <option value="${rentType.getId()}">${rentType.getName()}</option>
+                    </c:forEach>
+                </select>
+                </td>
             </tr>
             <tr>
-                <td>Mã cơ sở:</td>
-                <td><input name="facilityTypeId" value="${facility.getFacilityTypeId()}"></td>
+                <td>Loại cơ sở:</td>
+                <td> <select id="facilityType" name="facilityTypeId">
+                    <c:forEach var="facilityType" items="${facilityTypeList}">
+                        <option value="${facilityType.getId()}">${facilityType.getName()}</option>
+                    </c:forEach>
+                </select>
+                </td>
             </tr>
             <tr>
                 <td>Tiêu chuẩn phòng:</td>

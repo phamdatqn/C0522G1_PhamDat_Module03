@@ -33,7 +33,8 @@
         }
     </style>
 </head>
-<a href="view/home.jsp" style="color: #0d6efd;margin-top: 40px;font-size: 30px"><span class="bi bi-house-door" style="font-size: 30px; color: #4267b2;"> Back To Home</span></a><br><br><br>
+<body>
+<%@include file="/header.jsp" %>
 
 <h3 style="color: #6a1a21;text-align: center">Quản Lý nhân viên</h3>
 
@@ -41,12 +42,7 @@
     <input hidden type="text" name="action" value="search">
     <input type="text" name="nameSearch" value="${nameSearch}" placeholder="nhập tên khách hàng">
     <input type="text" name="addressSearch" value="${addressSearch}" placeholder="nhập địa chỉ">
-    <select name="facilityType">
-        <option value="" disabled selected>Chọn Loại Cơ Sở</option>
-        <c:forEach var="employeeType" items="${employeeTypeList}">
-            <option value="${employeeType.id}">${employeeType.name}</option>
-        </c:forEach>
-    </select>
+    <input type="text" name="phoneNumberSearch" value="${phoneNumberSearch}" placeholder="nhập địa chỉ">
     <button type="submit">Search</button>
 </form>
 

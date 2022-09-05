@@ -15,4 +15,6 @@ public interface IEmployeeRepository {
     boolean update(int id, Employee employee);
 
     void create(Employee employee);
+
+    List<Employee> search(String nameSearch,String nameAddress,String phoneNumberSearch);
 }

@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FacilityTypeRepository implements IFacilityTypeRepository {
-    private static String SELECT_ALL_FACILITY_TYPE ="SELECT * FROM facility_type;";
+    private static String SELECT_ALL_FACILITY_TYPE ="SELECT * FROM facility_type where is_delete=0;";
     @Override
     public List<FacilityType> findAll() {
         List<FacilityType> facilityTypeList=new ArrayList<>();

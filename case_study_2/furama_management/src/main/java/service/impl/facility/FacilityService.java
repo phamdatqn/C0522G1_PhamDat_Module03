@@ -37,4 +37,9 @@ public class FacilityService implements IFacilityService {
       iFacilityRepository.create(facility);
 
     }
+
+    @Override
+    public List<Facility> search(String nameSearch) {
+        return iFacilityRepository.search(nameSearch);
+    }
 }
